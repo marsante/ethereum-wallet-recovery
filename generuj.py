@@ -16,7 +16,7 @@ args = parser.parse_args()
 
 class RotatingFile(object):
     
-    def __init__(self, directory='', filename='wordlist', max_files=sys.maxint,
+    def __init__(self, directory='', filename='wordlist', max_files=sys.maxsize,
         max_file_size=50000000):
         self.ii = 1
         self.directory, self.filename      = directory, filename
