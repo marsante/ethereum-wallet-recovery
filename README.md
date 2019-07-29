@@ -1,23 +1,22 @@
-# louskac.py
-ethereum wallet recovery password multithread tool, baked from [pyethrecover](https://github.com/burjorjee/pyethrecover) and [pyethereum](https://github.com/ethereum/pyethereum), for using keystore v3 json file to help recover your lost password if you know some phrases using both brute and wordlist technique, start + end words, whole ascii or just numbers
+# Ethereum Wallet Recovery Py 3
+ethereum wallet recovery password multithread tool, forked from [ethereum-wallet-recovery](https://github.com/seevik2580/ethereum-wallet-recovery) for using keystore v3 json file to help recover your lost password if you know some phrases using both brute and wordlist technique, start + end words, whole ascii or just numbers
+Aims of this fork is the compatibility with Python 3
 
-## Video demonstration
+## What's work
+generuj.py
+
+## Old Video demonstration
 [https://www.youtube.com/watch?v=BFvTJP32dxA](https://www.youtube.com/watch?v=BFvTJP32dxA)
 
 ## requirements:
 - Linux / Windows 10 Anniversary Update or newer and Windows Subsystem for Linux enabled.
-- python 2.7.x
+- python 3.x
  
 ## dependency install:
 - `sudo apt-get install python-pip python-dev libssl-dev build-essential automake pkg-config libtool libffi-dev libgmp-dev pandoc`
 
 ## python modules requirements:
-- `sudo pip install setuptools --upgrade`
-- `sudo pip install joblib`
-- `sudo pip install pypandoc`
-- `sudo pip install markdown`
-- `sudo pip install rlp==0.6.0`
-- `sudo pip install ethereum==2.1.5`
+- `sudo pip install --no-cache-dir -r requirements.txt`
 
 ## usage:
 every print and option in czech language, maybe in future i will translate it to english.
@@ -87,5 +86,5 @@ every print and option in czech language, maybe in future i will translate it to
   `python louskac.py -p UTC--2017-07-12T00-06-42.772050600Z--f5751c906091b98be2a6be5ce42c573d704aedab -w wordlist.txt -k end.txt`
   
   # donate 
-  - ZEC t1ZFXmknFJEwYrbDm2jX5PZN8wHkQUDvDjD
+  - ETH
   
