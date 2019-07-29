@@ -39,9 +39,9 @@ if args.brute is not None:
         l = string.printable
         print (l)
     z = []
-    for s in xrange(k):
+    for s in range(k):
         a = [i for i in l]
-        for y in xrange(s):
+        for y in range(s):
             a = [x+i for i in l for x in a]
         z = z+a
 
@@ -95,7 +95,7 @@ print ("Zpracovavam penezenku: ", w["address"])
 def generate_all(el, tr):
     
     if el:
-        for j in xrange(len(el[0])):
+        for j in range(len(el[0])):
             for w in generate_all(el[1:], tr + el[0][j]):
                 yield w
     else:

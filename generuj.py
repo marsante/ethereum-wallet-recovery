@@ -85,7 +85,7 @@ if __name__=='__main__':
 
     while not myfile.finished:
         maxpocet=len(slova.split(","))
-        for pocet in xrange(maxpocet+1):
+        for pocet in range(maxpocet+1):
             for group in permutations(slova.split(","), pocet):
                 slovo=''.join(group)
                 delka=len(slovo)
