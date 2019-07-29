@@ -48,7 +48,7 @@ class RotatingFile(object):
         self.rotate()
 
     def close(self):
-        print self.filename_template, time.time() - self.time1
+        print (self.filename_template, time.time() - self.time1)
         self.fh.close()
 
     
@@ -58,7 +58,7 @@ class RotatingFile(object):
         return self.directory + self.filename + "_%0.2d.txt" % self.ii
 
 if __name__=='__main__':
-    print "Generuji variace hesel"
+    print ("Generuji variace hesel")
     myfile = RotatingFile(max_files=99999999)
     
     if args.ascii is True:	
@@ -93,11 +93,11 @@ if __name__=='__main__':
                     myfile.c+=1
                     myfile.write("%s\n" % slovo)
                     if myfile.c % 100000 == 0:
-                        print "Generuji", myfile.c,". heslo" 
+                        print ("Generuji", myfile.c,". heslo")
         
-        print myfile.filename_template, time.time() - myfile.time1
-        print "Hotovo, vygenerovano %s kombinaci" % myfile.c
-        print "Vytvoreno %s souboru" % myfile.ii
+        print (myfile.filename_template, time.time() - myfile.time1)
+        print ("Hotovo, vygenerovano %s kombinaci" % myfile.c)
+        print ("Vytvoreno %s souboru" % myfile.ii)
         break
 
     

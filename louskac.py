@@ -35,9 +35,9 @@ if args.brute is not None:
         k = 1
     l = args.brute
     if args.brute == "ascii" or args.brute == "ASCII":
-        print "Pouziji celou ascii tabulku"
+        print ("Pouziji celou ascii tabulku")
         l = string.printable
-        print l
+        print (l)
     z = []
     for s in xrange(k):
         a = [i for i in l]
@@ -90,7 +90,7 @@ elif args.wordlist is not None:
 
 time1 = time.time()
 w = json_data
-print "Zpracovavam penezenku: ", w["address"]
+print ("Zpracovavam penezenku: ", w["address"])
 
 def generate_all(el, tr):
     
@@ -112,7 +112,7 @@ def attempt(w, pw):
     jakdlouho=time.time() - time1
     cas="\t%.2f sec \t\t" % jakdlouho
         
-    print counter.value, "\t", n_pws-counter.value, cas, [pw]
+    print (counter.value, "\t", n_pws-counter.value, cas, [pw])
         
     try:
         o = decode_keystore_json(w,pw)
@@ -151,13 +151,13 @@ def __main__():
     counter = Counter()
     try:
         Parallel(n_jobs=pocetvlaken, backend = 'multiprocessing', batch_size=1, pre_dispatch=pocetvlaken, verbose=0)(delayed(attempt)(w, pw) for pw in pwds)
-        print "Hotovo"
+        print ("Hotovo")
         
     except Exception, e:
         try:
-            print "\n\n"
-            print e
-            print "Chyba!"
+            print ("\n\n")
+            print (e)
+            print ("Chyba!")
         except SystemExit as e:                                                   
             sys.exit(e)
         except:
