@@ -153,7 +153,7 @@ def __main__():
         Parallel(n_jobs=pocetvlaken, backend = 'multiprocessing', batch_size=1, pre_dispatch=pocetvlaken, verbose=0)(delayed(attempt)(w, pw) for pw in pwds)
         print ("Hotovo")
         
-    except Exception, e:
+    except Exception as e:
         try:
             print ("\n\n")
             print (e)
