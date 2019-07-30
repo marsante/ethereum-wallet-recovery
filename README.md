@@ -16,6 +16,7 @@ generuj.py
 - `sudo apt-get install python-pip python-dev libssl-dev build-essential automake pkg-config libtool libffi-dev libgmp-dev pandoc`
 
 ## python modules requirements:
+- `sudo pip install --upgrade pip`
 - `sudo pip install --no-cache-dir -r requirements.txt`
 
 ## usage:
