@@ -124,12 +124,12 @@ def attempt(w, pw):
         f.write("""\n\n*************************\nNasel jsem heslo:\n"%s"\n*************************\n\n""" % pw)
         f.close()
         os.system("killall python")
-	try:
-	    os.system("killall python")
-	except SystemExit as e:                                                   
-	    sys.exit(e)
-	except:
-	    raise
+        try:
+            os.system("killall python")
+        except SystemExit as e:
+            sys.exit(e)
+        except:
+            raise
    
     except ValueError as e:
         return ""
