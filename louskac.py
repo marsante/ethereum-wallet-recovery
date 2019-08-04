@@ -1,5 +1,5 @@
 #!/usr/bin/python
-
+from __future__ import print_function
 from keys import decode_keystore_json
 from joblib import Parallel, delayed
 
