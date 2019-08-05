@@ -7,10 +7,10 @@ import argparse
 
 parser = argparse.ArgumentParser()  
 group = parser.add_mutually_exclusive_group(required=True)   
-group.add_argument("-s", "--slova", type=str, required=False, help="slova ze kterych generovat wordlist, oddeluj carkou")
-group.add_argument("-v", "--vstupnisoubor", type=str, required=False, help="soubor ve kterem jsou slova ze kterych generovat wordlist")
-parser.add_argument("-min", "--minimal", type=int, required=False, help="minimalni delka znaku")
-parser.add_argument("-max", "--maximal", type=int, required=False, help="maximalni delka znaku")
+group.add_argument("-s", "--words", type=str, required=False, help="generate wordlist from words separated by commas")
+group.add_argument("-v", "--inputfile", type=str, required=False, help="generate wordlist from input txt file")
+parser.add_argument("-min", "--minimal", type=int, required=False, help="minimal character length")
+parser.add_argument("-max", "--maximal", type=int, required=False, help="maximal character length")
 group.add_argument("-a", "--ascii", action='store_true', required=False, help="generate from ascii table")
 
 args = parser.parse_args() 
@@ -59,20 +59,20 @@ class RotatingFile(object):
         return self.directory + self.filename + "_%0.2d.txt" % self.ii
 
 if __name__=='__main__':
-    print ("Generuji variace hesel")
+    print ("Generating password variations")
     myfile = RotatingFile(max_files=99999999)
     
     if args.ascii is True:
         f="0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,!,\",#,$,%,&,',(,),*,+,-,.,/,:,;,<,=,>,?,@,[,\,],^,_,`,{,|,},~, "
-        slova=f
+        words=f
 	
-    if args.slova is not None:
-        f=args.slova
-        slova=f
+    if args.words is not None:
+        f=args.words
+        words=f
         
-    if args.vstupnisoubor is not None:
-        f=open(args.vstupnisoubor)
-        slova=f.readline()
+    if args.inputfile is not None:
+        f=open(args.inputfile)
+        words=f.readline()
         
     if args.minimal is None:
 	    minimal = 1
@@ -85,20 +85,20 @@ if __name__=='__main__':
    	    maximal = args.maximal
 
     while not myfile.finished:
-        maxpocet=len(slova.split(","))
-        for pocet in range(maxpocet+1):
-            for group in permutations(slova.split(","), pocet):
-                slovo=''.join(group)
-                delka=len(slovo)
-                if delka >= minimal and delka <= maximal:
+        maxnumber=len(words.split(","))
+        for number in range(maxnumber+1):
+            for group in permutations(words.split(","), number):
+                word=''.join(group)
+                length=len(word)
+                if length >= minimal and length <= maximal:
                     myfile.c+=1
-                    myfile.write("%s\n" % slovo)
+                    myfile.write("%s\n" % word)
                     if myfile.c % 100000 == 0:
-                        print ("Generuji", myfile.c,". heslo")
+                        print ("Generating", myfile.c,". passwords")
         
         print (myfile.filename_template, time.time() - myfile.time1)
-        print ("Hotovo, vygenerovano %s kombinaci" % myfile.c)
-        print ("Vytvoreno %s souboru" % myfile.ii)
+        print ("Done, generated %s combination(s)" % myfile.c)
+        print ("Created %s file" % myfile.ii)
         break
 
     
