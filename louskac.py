@@ -50,7 +50,7 @@ if args.vlaken is not None:
 
 if args.wordlist is not None:
     wordlist=args.wordlist
-    with open(wordlist, 'rb') as f:
+    with open(wordlist) as f:
         dictlist = f.read().splitlines()
 
 if args.koncovysoubor is not None:
@@ -96,7 +96,7 @@ def generate_all(el, tr):
     
     if el:
         for j in range(len(el[0])):
-            for w in generate_all(el[1:], tr + el[0][j].decode("utf-8")):
+            for w in generate_all(el[1:], tr + el[0][j]):
                 yield w
     else:
         yield tr
