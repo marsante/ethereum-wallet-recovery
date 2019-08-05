@@ -96,7 +96,7 @@ def generate_all(el, tr):
     
     if el:
         for j in range(len(el[0])):
-            for w in generate_all(el[1:], tr + el[0][j]):
+            for w in generate_all(el[1:], tr + el[0][j].decode("utf-8")):
                 yield w
     else:
         yield tr
