@@ -1,26 +1,28 @@
-# Ethereum Wallet Recovery Py 3
-ethereum wallet recovery password multithread tool, forked from [ethereum-wallet-recovery](https://github.com/seevik2580/ethereum-wallet-recovery) for using keystore v3 json file to help recover your lost password if you know some phrases using both brute and wordlist technique, start + end words, whole ascii or just numbers
-Aims of this fork is the compatibility with Python 3
-
-## What's work
-generuj.py
+# Py3ethrecover
+ethereum wallet recovery password multithread tool, forked from [ethereum-wallet-recovery](https://github.com/seevik2580/ethereum-wallet-recovery) for using keystore v3 json file to help recover your lost password if you know some phrases using both brute and wordlist technique, start + end words, whole ascii or just numbers.
+Add Python 3 compatibility
+Add Python 2.7 retrocompatibility
+Add pip requirements.txt file
+Fix dependancies
 
 ## Old Video demonstration
 [https://www.youtube.com/watch?v=BFvTJP32dxA](https://www.youtube.com/watch?v=BFvTJP32dxA)
 
-## requirements:
+## Requirements:
 - Linux / Windows 10 Anniversary Update or newer and Windows Subsystem for Linux enabled.
-- python 3.x
+- Python 2.7 (will reach the end of its life on January 1st, 2020)
+- or
+- Python 3.x
  
-## dependency install:
-- `sudo apt-get install python-pip python-dev libssl-dev build-essential automake pkg-config libtool libffi-dev libgmp-dev pandoc`
-
-## python modules requirements:
-- `sudo pip install --upgrade pip`
-- `sudo pip install --no-cache-dir -r requirements.txt`
-
-## usage:
-every print and option in czech language, maybe in future i will translate it to english.
+## Dependencies install:
+- Copy and paste on a terminal
+```bash
+sudo apt update && sudo apt install python-pip python-dev libssl-dev build-essential automake pkg-config libtool libffi-dev libgmp-dev \
+&& sudo pip install --upgrade pip \
+&& sudo pip install --no-cache-dir -r requirements.txt
+```
+## Usage:
+Every print and option in czech language, maybe in future i will translate it to english.
 
 1. `python generuj.py -h` #wordlist generator
     - -h                # help
@@ -42,10 +44,10 @@ every print and option in czech language, maybe in future i will translate it to
         - whatever char by char eg. 1234567890 or @#!$%^&*(
     - -d N              # bruteforce character leght
 
-### uploaded test dummy wallet for test purposes, password:
+### Uploaded test dummy wallet for test purposes, password:
 # theAnswerToLifeUniverseAndEverythingIs42
 
-### examples generuj.py:
+### Examples generuj.py:
   #### makes all possible combinations of words separated by comma. 
   `python generuj.py -s "fist,second,third"`      
   
@@ -61,7 +63,7 @@ every print and option in czech language, maybe in future i will translate it to
   - generated wordlist will be in same directory with name wordlist_01.txt. 
   - When wordlist reach maximum file size 50MB then new file will be created with next name wordlist_02.txt
 
-### examples louskac.py:
+### Examples louskac.py:
   #### bruteforce numbers from 0 to 9 with size of 2
   `python louskac.py -p UTC--2017-07-12T00-06-42.772050600Z--f5751c906091b98be2a6be5ce42c573d704aedab -b 1234567890 -d 2`
   
