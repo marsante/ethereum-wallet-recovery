@@ -23,7 +23,6 @@ sudo apt update && sudo apt install python-pip python-dev libssl-dev build-essen
 && sudo pip install --no-cache-dir -r requirements.txt
 ```
 ## Usage:
-Every print and option in czech language, maybe in future i will translate it to english.
 
 1. `python generating.py -h` #wordlist generator
     - -h                # help
